@@ -1,0 +1,37 @@
+---
+sidebar_position: 4
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+# 4. Configure and run your MongoDB .Net app
+
+## Paste your Atlas connection string in appsettings.json
+
+```
+{
+  "MongoDB": {
+    "ConnectionURI": "ATLAS_URI_HERE",
+    "DatabaseName": "sample_mflix",
+    "CollectionName": "playlist"
+  }
+}
+```
+
+## Run the app server
+
+Move into the `MoviesListingDemoApp` folder:
+
+```
+cd MoviesListingDemoApp
+```
+
+And execute the following command:
+
+```
+dotnet run
+```
+
+:::info
+Make sure to press "Always Allow" when pop up appears.
+:::

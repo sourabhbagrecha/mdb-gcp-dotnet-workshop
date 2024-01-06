@@ -1,0 +1,8 @@
+{
+  "label": "Implement CRUD operations",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "In this section, you will get up and running to implement Create, Read, Update and Delete functionality in your app."
+  }
+}

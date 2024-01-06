@@ -1,0 +1,80 @@
+---
+sidebar_position: 1
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+# 1. Get Started with MongoDB Atlas
+
+MongoDB Atlas is a developer data platform, integrating a multi-cloud database with a diverse set of data services. Atlas simplifies database deployment and management while enabling modern data-driven application development.
+
+In this section, you will deploy your first MongoDB Atlas cluster.
+
+## Register a new Atlas account
+
+Signing up for MongoDB Atlas is completely free and doesn't require a credit card. Use the link below to create your account:
+
+- [Try MongoDB Atlas!](https://www.mongodb.com/try?utm_campaign=devrel&utm_source=workshop&utm_medium=cta&utm_content=gcp_dotnet_workshop&utm_term=sourabh.bagrecha)
+
+## Deploy a free cluster
+
+It's time to deploy your first cluster in MongoDB Atlas.
+
+:::info
+You can choose from a range of cluster tiers offered by Atlas, starting from **M0** and going up to **M600**. These tiers are designed to accommodate different workload requirements and scalability needs.
+
+For this tutorial, you will be deploying a free shared cluster from the M0 tier. You can deploy one such cluster per project. The M0 cluster is designed for small-scale development and testing purposes, offering a limited amount of storage (512 MB) and performance capacity compared to higher-tier clusters. It will allow you to explore the features and capabilities of MongoDB Atlas without incurring any costs, making it a perfect choice for a hands-on tutorial.
+:::
+
+You will deploy the cluster using the Atlas UI, so before starting, make sure you’re logged into your [account](https://cloud.mongodb.com?utm_campaign=devrel&utm_source=workshop&utm_medium=cta&utm_content=gcp_dotnet_workshop&utm_term=megha.arora_sourabh.bagrecha).
+
+1. Click the **Build a Database** button.
+
+   <img
+     alt="'Create a database' section in MongoDB Atlas highlighting the 'Build a database' button"
+     src={useBaseUrl("/img/chapter-1-mongodb-atlas/create-a-database.png")}
+     width="500"
+   />
+
+1. Select the **M0** free cluster tier.
+
+   <img
+     alt="Cluster tier selection highlighting the M0 tier"
+     src={useBaseUrl("/img/chapter-1-mongodb-atlas/select-database-type.png")}
+   />
+
+1. Select a cloud provider and the region closest to your physical location. Rename your cluster to **movies-app**.
+
+   <img
+     alt="Cluster configuration showing Azure selected as cloud provider, 'Mumbai (asia-south)' as region, and 'Workshop-Bakery' as name for the cluster."
+     src={useBaseUrl(
+       "/img/chapter-1-mongodb-atlas/select-cloud-provider-region-name.png"
+     )}
+     width="900px"
+   />
+
+1. Click **Create** to deploy your cluster.
+
+   :::info
+   Your MongoDB Atlas database deployment is inherently secure and completely locked by default. To connect, you need to establish access credentials and configure network accessibility. However, in this tutorial, you will build a serverless backend powered by Atlas App Services, which will handle the connection to your database for you. As a result, you don't need to setup direct database access.
+   :::
+
+1. Go back to your database deployment by selecting **Database** from the left-hand menu.
+
+   <img
+     alt="Security quickstart page highlighting the 'Database' tab in the left-hand menu"
+     src={useBaseUrl(
+       "/img/chapter-1-mongodb-atlas/security-quickstart-highlighted-database-button.png"
+     )}
+   />
+
+1. Creating the cluster may take a couple of minutes. Once the deployment is complete, you will see your first cluster in the list!
+
+   <img
+     alt="The 'Database Deployments' page with a cluster named 'Workshop-Bakery'"
+     src={useBaseUrl("/img/chapter-1-mongodb-atlas/database-deployments.png")}
+   />
+
+   :::note
+   You have just deployed a free cluster using the Atlas UI. You can also deploy and manage Atlas deployments with the [Atlas CLI](https://www.mongodb.com/docs/atlas/cli/stable/?utm_campaign=devrel&utm_source=workshop&utm_medium=cta&utm_content=gcp_dotnet_workshop&utm_term=sourabh.bagrecha).
+   :::
