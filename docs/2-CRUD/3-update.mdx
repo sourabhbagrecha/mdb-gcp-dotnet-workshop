@@ -6,8 +6,26 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Update
 
-## Start from branch: `workshop-2`
+> Update movies' genre using title in our database
 
+```jsx title="Services/MongoDBService.cs"
+    ...
+    public async Task UpdateGenre(string title, string genre)
+    {
+        FilterDefinition<Movie> filter = Builders<Movie>.Filter.Eq("Title", title);
+        UpdateDefinition<Movie> update = Builders<Movie>.Update.AddToSet<string>("Genres", genre);
+        await _moviesCollection.UpdateOneAsync(filter, update);
+        return;
+    }
+    ...
 ```
-git checkout workshop-2
+
+```jsx title="Controllers/MovieController.cs"
+    ...
+    public async Task<IActionResult> AddToGenres(string title, [FromBody] string genre)
+    {
+        await _mongoDBService.UpdateGenre(title, genre);
+        return Ok();
+    }
+    ...
 ```

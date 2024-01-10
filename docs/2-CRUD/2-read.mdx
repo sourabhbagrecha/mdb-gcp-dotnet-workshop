@@ -1,0 +1,28 @@
+---
+sidebar_position: 2
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+# Read
+
+> Get movies from our database
+
+```jsx title="Services/MongoDBService.cs"
+    ...
+    public async Task<List<Movie>> GetAsync()
+    {
+        return await _moviesCollection.Find(new BsonDocument()).ToListAsync();
+    }
+    ...
+```
+
+```jsx title="Controllers/MovieController.cs"
+    ...
+    public async Task<List<Movie>> Get()
+    {
+        var movies = await _mongoDBService.GetAsync();
+        return movies;
+    }
+    ...
+```

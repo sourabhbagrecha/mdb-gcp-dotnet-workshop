@@ -6,10 +6,25 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 # Delete
 
-> Delete a movie from the database.
+> Delete a movie using title from our database
 
-## Start from branch: `workshop-3`
-
+```jsx title="Services/MongoDBService.cs"
+    ...
+    public async Task DeleteAsync(string title)
+    {
+        FilterDefinition<Movie> filter = Builders<Movie>.Filter.Eq("Title", title);
+        await _moviesCollection.DeleteOneAsync(filter);
+        return;
+    }
+    ...
 ```
-git checkout workshop-3
+
+```jsx title="Controllers/MovieController.cs"
+    ...
+    public async Task<IActionResult> Delete(string title)
+    {
+        await _mongoDBService.DeleteAsync(title);
+        return Ok();
+    }
+    ...
 ```
